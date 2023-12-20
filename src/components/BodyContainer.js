@@ -5,7 +5,9 @@ import { useState, useEffect } from "react";
 import Shimer from "./Shimer";
 import {Link} from "react-router-dom";
 
+
 const BodyContainer = () => {
+    
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [afterFilterList,setAfterFilterList] =  useState([]);
     const [searchText, setSearchText] = useState("");
@@ -17,11 +19,13 @@ const BodyContainer = () => {
 
     const fetchData = async ()=>{
         try {
-            const res = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.960059122809971&lng=77.57337538383284&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+            const res = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.960059122809971&lng=77.57337538383284&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+            // const res = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.960059122809971&lng=77.57337538383284&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
             const dat = await res.json();
             // console.log(dat);
             setListOfRestaurants(dat.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
             setAfterFilterList(dat.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+            console.log(dat.data)
         } catch (error) {
             console.error("Error fetching data:", error);
         }
@@ -34,7 +38,7 @@ const BodyContainer = () => {
     return (
         <div className="flex flex-wrap mx-14">
             <div className="w-[100%] h-20 p-5">
-                <input className="h-10 border border-slate-50 bg-green-50 px-2" type="text" value={searchText}
+                <input className="h-10 border border-slate-50 bg-green-100 px-2" type="text" value={searchText}
                     onChange={(e)=>{
                         setSearchText(e.target.value)
                     }}
