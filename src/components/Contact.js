@@ -27,7 +27,7 @@ class Contact extends React.Component{
     render(){
         console.log("parent rendr called")
        return (
-            <div>
+            <div className="mt-[7rem]">
                 <h1> Hello contact us for any query!!</h1>
                 <UserClass name={"Ghulam Hyder dar(class)"} address={"Bagh Wodder ward no6 Bandipore"}/>
             </div>

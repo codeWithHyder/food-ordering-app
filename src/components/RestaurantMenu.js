@@ -23,7 +23,7 @@ const RestaurantMenu = ()=>{
     // console.log(resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards);
 
     return (
-        <div className="w-6/12 m-auto my-2">
+        <div className="w-6/12 m-auto my-10">
             <h1 className="font-bold text-lg text-center">{resInfo.cards[0].card.card.info.name}</h1>
             <h1 className="font-bold text-lg text-center">{resInfo.cards[0].card.card.info.cuisines.join(", ")}</h1>
             {/* categories of accordions */}

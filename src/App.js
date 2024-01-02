@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM  from "react-dom/client";
 import Header from "./components/Header";
 import ContactFunction from "./components/ContactFunction";
@@ -11,16 +11,29 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import Login from "./components/Login";
+import Signin from "./components/Signin"
+import PaymentGateWay from "./components/PaymentGateWay";
+import { createContext } from "react";
+import Signout from "./components/Signout";
 
-
+ export const stateContext = createContext();
 const AppLayout = ()=> {
+
+   
+
+    const [loggedInUser, setLoggedInUser] = useState('Signup');
+    const sharedState= {loggedInUser, setLoggedInUser};
+
     return(
       <Provider store={appStore}>
-      <div className="app-container">
-            <Header />
-            <Outlet />
-        {/* footer */}
-      </div>
+      <stateContext.Provider value={sharedState}>
+        <div className="">
+              <Header />
+              <Outlet />
+          {/* footer */}
+        </div>
+      </stateContext.Provider>
       </Provider>
     )
 };
@@ -57,6 +70,27 @@ const appRouter = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
      },
+
+     {
+        path: "/login",
+        element: <Login />,
+     },
+
+     {
+        path: "/signout",
+        element: <Signout />,
+     },
+
+      {
+        path: "/signin",
+        element: <Signin />,
+     },
+
+      {
+        path: "/payment",
+        element: <PaymentGateWay />,
+     },
+
      {
         path: "*",
         element: <Error />

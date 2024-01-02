@@ -4,8 +4,8 @@ import { addItem, removeItem } from "../utils/cartSlice";
 const CartList =({items})=>{
 
     const dispatch = useDispatch();
-    const handleAddItem =(item,index)=>{
-        dispatch(removeItem(item,index));
+    const handleRemoveItem =(index)=>{
+        dispatch(removeItem({index}));
     }
     console.log(`${items.length} items`);
     return(
@@ -18,7 +18,7 @@ const CartList =({items})=>{
                     <div className="m-3 text-xs">{item.card.info.description}</div>
                 </div> 
                 <div className="m-3 w-3/12">
-                    <button className=" bg-black text-white rounded p-1 absolute ml-[90] cursor-pointer" onClick={()=>{handleAddItem(item,index)}}>Remove </button>
+                    <button className=" bg-black text-white rounded p-1 absolute ml-[90] cursor-pointer" onClick={()=>{handleRemoveItem(index)}} >Remove </button>
                     <img src={CDN_URL+item.card.info.imageId} className="w-20 h-20 ml-auto rounded-md"/> 
                 </div>
             </div>

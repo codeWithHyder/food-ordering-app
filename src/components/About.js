@@ -1,6 +1,6 @@
 const About=() => {
     return(
-        <div className="w-6/12 mx-auto bg-slate-400 h-52 my-10 p-5">
+        <div className="w-6/12 mx-auto bg-slate-400 h-52 my-32 p-5">
             <h1 className="text-center">Want to know about us !!</h1>
             <h3 className="text-center">Fill this form then </h3>
             <form>
