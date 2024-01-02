@@ -13,3 +13,6 @@
     11. it does differential bundling i.e; supports older browsers
     12. it does diagnostics
     13. it handles errors 
+[live demo] (https://food-ordering-be46j6zts-hyders-projects.vercel.app/)
+
+### the live demo may not display cards due to CORS issue 
